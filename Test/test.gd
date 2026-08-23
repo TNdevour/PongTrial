@@ -9,7 +9,7 @@ func _ready() -> void:
 	launch_timer.start()
 
 func _on_launch_timer_timeout() -> void:
-	ball.launch_ball()
+	ball.launch_ball(ball)
 
 func _on_player_score_area_body_entered(body: Node2D) -> void:
 	if body is Ball: SignalHub.emit_on_ai_scored()

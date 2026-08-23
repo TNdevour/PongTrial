@@ -46,5 +46,6 @@ position = Vector2(35, 323)
 [node name="AiScoreArea" parent="." unique_id=1633451924 instance=ExtResource("7_4ttbv")]
 position = Vector2(1130, 323)
 
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="PlayerScoreArea" to="." method="_on_player_score_area_body_entered"]
 [connection signal="body_entered" from="AiScoreArea" to="." method="_on_ai_score_area_body_entered"]

@@ -1,14 +1,17 @@
 extends AnimatableBody2D
 
 @export var _target_ball:Ball
-
-var _can_move:bool = true
 @export var _speed: float = 200.0
 
+const PADDLE_GROUP: String = "paddles"
 const PADDLE_BUFFER_DISTANCE: float = 10.0
+
+var _can_move:bool = true
 
 func _ready() -> void:
 	SignalHub.on_ball_spawned.connect(set_up_target_ball)
+	add_to_group(PADDLE_GROUP)
+
 
 func _physics_process(_delta: float) -> void:
 	if !_can_move: return
@@ -20,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 
 func set_up_target_ball(new_ball:Ball)-> void:
 	_target_ball = new_ball
+	_can_move = true
 
 func follow_target_ball()-> void:	
 	if _target_ball == null: return
