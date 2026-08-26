@@ -15,6 +15,10 @@ run/main_scene="uid://crt2twuo7gdkx"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://mkcxskjsc10u"
+
 [autoload]
 
 SignalHub="*uid://c0esyrns6a3te"

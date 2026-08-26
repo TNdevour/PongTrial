@@ -85,5 +85,5 @@ func on_start_round()-> void:
 	update_ai_score()
 	update_player_score()
 
-func _physics_process(_delta: float) -> void:
-	print("game_state: %s"%[GameState.find_key(_game_state)]);
+#func _physics_process(_delta: float) -> void:
+	#print("game_state: %s"%[GameState.find_key(_game_state)]);
