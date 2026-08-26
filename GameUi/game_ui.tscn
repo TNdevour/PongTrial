@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://2h2uwij470pc"]
+
+[ext_resource type="Script" uid="uid://bo6msxjowb8d2" path="res://GameUi/game_ui.gd" id="1_7hwgo"]
+[ext_resource type="LabelSettings" uid="uid://dew7ha1oxkwdh" path="res://Resources/white_60.tres" id="1_fvjcj"]
+[ext_resource type="LabelSettings" uid="uid://c1fr43goocvsy" path="res://Resources/white_40.tres" id="3_52kr5"]
+
+[node name="GameUi" type="Control" unique_id=802200503]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hwgo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=315981999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 20
+
+[node name="ScoresHbox" type="HBoxContainer" parent="MarginContainer" unique_id=1602955681]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScoresHbox" unique_id=1246977574]
+layout_mode = 2
+
+[node name="Player_Score_Label" type="Label" parent="MarginContainer/ScoresHbox/HBoxContainer" unique_id=1284993442]
+layout_mode = 2
+text = "00"
+label_settings = ExtResource("1_fvjcj")
+
+[node name="Control" type="Control" parent="MarginContainer/ScoresHbox" unique_id=1428441618]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScoresHbox" unique_id=975830532]
+layout_mode = 2
+
+[node name="Ai_Score_Label" type="Label" parent="MarginContainer/ScoresHbox/HBoxContainer2" unique_id=1538997499]
+layout_mode = 2
+text = "00"
+label_settings = ExtResource("1_fvjcj")
+
+[node name="ReadyHbox" type="HBoxContainer" parent="MarginContainer" unique_id=1219281]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ReadyHbox" unique_id=636039814]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=1792549664]
+layout_mode = 2
+text = "READY?"
+label_settings = ExtResource("1_fvjcj")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=1155281052]
+layout_mode = 2
+text = "PRESS SPACE TO START"
+label_settings = ExtResource("3_52kr5")
+horizontal_alignment = 1
+
+[node name="PauseHbox" type="HBoxContainer" parent="MarginContainer" unique_id=1194443154]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PauseHbox" unique_id=919294460]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=21430900]
+layout_mode = 2
+text = "PAUSED"
+label_settings = ExtResource("1_fvjcj")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=280598127]
+layout_mode = 2
+text = "PRESS SPACE TO RESUME"
+label_settings = ExtResource("3_52kr5")
+horizontal_alignment = 1
+
+[node name="GameOverHbox" type="HBoxContainer" parent="MarginContainer" unique_id=124982704]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOverHbox" unique_id=1935269856]
+layout_mode = 2
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer/GameOverHbox/VBoxContainer" unique_id=24324798]
+layout_mode = 2
+text = "YOU WON!"
+label_settings = ExtResource("1_fvjcj")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/GameOverHbox/VBoxContainer" unique_id=1355360135]
+layout_mode = 2
+text = "PRESS SPACE TO RESTART"
+label_settings = ExtResource("3_52kr5")
+horizontal_alignment = 1
+
+[node name="PauseTimer" type="Timer" parent="." unique_id=846687709]
+wait_time = 0.2
+one_shot = true

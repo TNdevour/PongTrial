@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://crt2twuo7gdkx"]
 
 [ext_resource type="Script" uid="uid://c5cqq8oss8k8o" path="res://Scenes/master.gd" id="1_xwxdq"]
-[ext_resource type="PackedScene" uid="uid://mfdiwg1qkyqs" path="res://Ball/ball.tscn" id="2_dla66"]
-[ext_resource type="PackedScene" uid="uid://c4edxocn2c6xl" path="res://Scorer/scorer.tscn" id="3_ui57x"]
-[ext_resource type="PackedScene" uid="uid://1ea320c11rpa" path="res://Wall/wall.tscn" id="4_tdhcf"]
-[ext_resource type="PackedScene" uid="uid://cwiexi6qdhbri" path="res://PlayerPaddle/player_paddle.tscn" id="5_ofqse"]
-[ext_resource type="PackedScene" uid="uid://khwtli2ptyye" path="res://AiPaddle/ai_paddle.tscn" id="6_qwuhp"]
-[ext_resource type="PackedScene" uid="uid://ux4qjsjirevc" path="res://ScoreArea/score_area.tscn" id="7_4ttbv"]
+[ext_resource type="PackedScene" uid="uid://mfdiwg1qkyqs" path="res://Scenes/Ball/ball.tscn" id="2_dla66"]
+[ext_resource type="PackedScene" uid="uid://1ea320c11rpa" path="res://Scenes/Wall/wall.tscn" id="4_tdhcf"]
+[ext_resource type="PackedScene" uid="uid://cwiexi6qdhbri" path="res://Scenes/PlayerPaddle/player_paddle.tscn" id="5_ofqse"]
+[ext_resource type="PackedScene" uid="uid://khwtli2ptyye" path="res://Scenes/AiPaddle/ai_paddle.tscn" id="6_qwuhp"]
+[ext_resource type="PackedScene" uid="uid://ux4qjsjirevc" path="res://Scenes/ScoreArea/score_area.tscn" id="7_4ttbv"]
+[ext_resource type="PackedScene" uid="uid://2h2uwij470pc" path="res://GameUi/game_ui.tscn" id="8_ofqse"]
 
 [node name="Master" type="Node" unique_id=1440608966]
 script = ExtResource("1_xwxdq")
 _ball_scene = ExtResource("2_dla66")
-
-[node name="Scorer" parent="." unique_id=981664865 instance=ExtResource("3_ui57x")]
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1484562140]
 position = Vector2(567, 295)
@@ -46,6 +44,14 @@ position = Vector2(35, 323)
 [node name="AiScoreArea" parent="." unique_id=1633451924 instance=ExtResource("7_4ttbv")]
 position = Vector2(1130, 323)
 
+[node name="LaunchTimer" type="Timer" parent="." unique_id=1287566040]
+wait_time = 1.5
+one_shot = true
+
+[node name="GameUi" parent="." unique_id=802200503 instance=ExtResource("8_ofqse")]
+process_mode = 3
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="PlayerScoreArea" to="." method="_on_player_score_area_body_entered"]
 [connection signal="body_entered" from="AiScoreArea" to="." method="_on_ai_score_area_body_entered"]
+[connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]
