@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://b6dwi7fjrq7p6"]
 
 [ext_resource type="Script" uid="uid://dgi287aplk0fd" path="res://Globals/sound_manager.gd" id="1_crtyo"]
+[ext_resource type="AudioStream" uid="uid://d4c8k78s30se1" path="res://Assets/Audio/Music/Troubadeck 53 A Screw Loose.ogg" id="2_p1j27"]
+[ext_resource type="AudioStream" uid="uid://dw4mf6ix3dx8s" path="res://Assets/Audio/Music/Week 15 - Sunburn SPF 3000.ogg" id="3_x2ahb"]
 
 [node name="SoundManager" type="Node" unique_id=1945425473]
+process_mode = 3
 script = ExtResource("1_crtyo")
+_main_menu_music = ExtResource("2_p1j27")
+_game_music = ExtResource("3_x2ahb")
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=2123251845]
+bus = &"Sfx"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1961295615]
+bus = &"Music"

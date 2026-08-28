@@ -8,6 +8,8 @@ signal on_ball_launched
 signal on_start_game
 signal on_game_over(player_won:bool)
 signal on_game_restarted
+signal on_ball_bounce
+signal on_difficulty_set(new_difficulty:String)
 
 func emit_on_player_scored() -> void:
 	on_player_scored.emit()
@@ -32,3 +34,9 @@ func emit_on_game_over(player_won:bool)-> void:
 
 func emit_on_game_restarted()-> void:
 	on_game_restarted.emit()
+
+func emit_on_ball_bounce()-> void:
+	on_ball_bounce.emit()
+
+func emit_on_difficulty_set(new_difficulty:String)-> void:
+	on_difficulty_set.emit(new_difficulty)

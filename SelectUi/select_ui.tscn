@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bel6bmgiok3ja"]
+
+[ext_resource type="Script" uid="uid://dn4ctm2q6ry5w" path="res://SelectUi/select_ui.gd" id="1_cgyai"]
+[ext_resource type="LabelSettings" uid="uid://dew7ha1oxkwdh" path="res://Resources/white_60.tres" id="1_eiy57"]
+[ext_resource type="LabelSettings" uid="uid://c1fr43goocvsy" path="res://Resources/white_40.tres" id="2_ddvv3"]
+[ext_resource type="Texture2D" uid="uid://b787f812ucm6q" path="res://Resources/white_flat_grad.tres" id="3_cgyai"]
+[ext_resource type="LabelSettings" uid="uid://clfemu86r661d" path="res://Resources/blue_60.tres" id="3_eiy57"]
+[ext_resource type="PackedScene" uid="uid://d1fvyxtpiabej" path="res://VolumeControl/volume_control.tscn" id="4_0ut1a"]
+
+[sub_resource type="Gradient" id="Gradient_ddvv3"]
+colors = PackedColorArray(0.4745098, 0.4862745, 0.50980395, 1, 0.4745098, 0.4862745, 0.50980395, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cgyai"]
+gradient = SubResource("Gradient_ddvv3")
+
+[node name="SelectUi" type="Control" unique_id=1644610796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgyai")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1821780506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 20
+
+[node name="ReadyHbox" type="HBoxContainer" parent="MarginContainer" unique_id=472800088]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ReadyHbox" unique_id=628901354]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=414662447]
+layout_mode = 2
+text = "READY?"
+label_settings = ExtResource("1_eiy57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=186371945]
+layout_mode = 2
+text = "PRESS SPACE TO START"
+label_settings = ExtResource("2_ddvv3")
+horizontal_alignment = 1
+
+[node name="PauseHbox" type="HBoxContainer" parent="MarginContainer" unique_id=618365437]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PauseHbox" unique_id=817153501]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=320558706]
+layout_mode = 2
+text = "CHOOSE DIFFICULTY"
+label_settings = ExtResource("2_ddvv3")
+horizontal_alignment = 1
+
+[node name="EasyModeButton" type="TextureButton" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=678144274]
+custom_minimum_size = Vector2(280, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_cgyai")
+texture_hover = SubResource("GradientTexture2D_cgyai")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/PauseHbox/VBoxContainer/EasyModeButton" unique_id=1875623030]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 75.0
+text = "EASIER"
+label_settings = ExtResource("3_eiy57")
+horizontal_alignment = 1
+
+[node name="HardModeButton" type="TextureButton" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=945410196]
+custom_minimum_size = Vector2(280, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_cgyai")
+texture_hover = SubResource("GradientTexture2D_cgyai")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/PauseHbox/VBoxContainer/HardModeButton" unique_id=449471987]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 75.0
+text = "HARDER"
+label_settings = ExtResource("3_eiy57")
+horizontal_alignment = 1
+
+[node name="MusicControl" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=757115812 instance=ExtResource("4_0ut1a")]
+layout_mode = 2
+
+[node name="SFXControl" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=16464930 instance=ExtResource("4_0ut1a")]
+layout_mode = 2
+volume_label = "SFX"
+audio_bus_name = "Sfx"
+
+[connection signal="pressed" from="MarginContainer/PauseHbox/VBoxContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseHbox/VBoxContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]

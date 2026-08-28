@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo6msxjowb8d2" path="res://GameUi/game_ui.gd" id="1_7hwgo"]
 [ext_resource type="LabelSettings" uid="uid://dew7ha1oxkwdh" path="res://Resources/white_60.tres" id="1_fvjcj"]
 [ext_resource type="LabelSettings" uid="uid://c1fr43goocvsy" path="res://Resources/white_40.tres" id="3_52kr5"]
+[ext_resource type="PackedScene" uid="uid://d1fvyxtpiabej" path="res://VolumeControl/volume_control.tscn" id="4_twfe8"]
 
 [node name="GameUi" type="Control" unique_id=802200503]
 process_mode = 3
@@ -63,18 +64,25 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=1792549664]
 layout_mode = 2
+text = "SCORE 10 POINTS TO WIN"
+label_settings = ExtResource("3_52kr5")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=709818940]
+layout_mode = 2
 text = "READY?"
 label_settings = ExtResource("1_fvjcj")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/ReadyHbox/VBoxContainer" unique_id=1155281052]
 layout_mode = 2
-text = "PRESS SPACE TO START"
+text = "PRESS SPACE TO START/PAUSE"
 label_settings = ExtResource("3_52kr5")
 horizontal_alignment = 1
 
 [node name="PauseHbox" type="HBoxContainer" parent="MarginContainer" unique_id=1194443154]
 visible = false
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
@@ -95,6 +103,14 @@ text = "PRESS SPACE TO RESUME"
 label_settings = ExtResource("3_52kr5")
 horizontal_alignment = 1
 
+[node name="MusicControl" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=757115812 instance=ExtResource("4_twfe8")]
+layout_mode = 2
+
+[node name="SFXControl" parent="MarginContainer/PauseHbox/VBoxContainer" unique_id=1975706454 instance=ExtResource("4_twfe8")]
+layout_mode = 2
+volume_label = "SFX"
+audio_bus_name = "Sfx"
+
 [node name="GameOverHbox" type="HBoxContainer" parent="MarginContainer" unique_id=124982704]
 layout_mode = 2
 size_flags_vertical = 4
@@ -113,6 +129,12 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="MarginContainer/GameOverHbox/VBoxContainer" unique_id=1355360135]
 layout_mode = 2
 text = "PRESS SPACE TO RESTART"
+label_settings = ExtResource("3_52kr5")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/GameOverHbox/VBoxContainer" unique_id=1134844012]
+layout_mode = 2
+text = "PRESS ESC TO CHANGE DIFFICULTY"
 label_settings = ExtResource("3_52kr5")
 horizontal_alignment = 1
 
