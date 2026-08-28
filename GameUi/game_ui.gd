@@ -8,7 +8,7 @@ extends Control
 @onready var pause_hbox: HBoxContainer = $MarginContainer/PauseHbox
 @onready var game_over_hbox: HBoxContainer = $MarginContainer/GameOverHbox
 @onready var pause_timer: Timer = $PauseTimer
-const SELECT_UI = preload("uid://bel6bmgiok3ja")
+var _select_ui = load("uid://bel6bmgiok3ja")
 
 enum GameState{PLAYING, PAUSED, READY, GAMEOVER}
 var _game_state:GameState = GameState.READY
@@ -74,7 +74,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		SignalHub.emit_on_game_restarted()
 	
 	if event.is_action_pressed("quit") and _game_state == GameState.GAMEOVER:
-		get_tree().change_scene_to_packed(SELECT_UI)
+		get_tree().change_scene_to_packed(_select_ui)
+		SignalHub.emit_on_game_restarted()
 	
 func on_game_over(has_player_won:bool)-> void:
 	get_tree().paused = true
