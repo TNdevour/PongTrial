@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://2h2uwij470pc"]
 
-[ext_resource type="Script" uid="uid://bo6msxjowb8d2" path="res://GameUi/game_ui.gd" id="1_7hwgo"]
+[ext_resource type="Script" uid="uid://bo6msxjowb8d2" path="res://Scenes/GameUi/game_ui.gd" id="1_7hwgo"]
 [ext_resource type="LabelSettings" uid="uid://dew7ha1oxkwdh" path="res://Resources/white_60.tres" id="1_fvjcj"]
 [ext_resource type="LabelSettings" uid="uid://c1fr43goocvsy" path="res://Resources/white_40.tres" id="3_52kr5"]
-[ext_resource type="PackedScene" uid="uid://d1fvyxtpiabej" path="res://VolumeControl/volume_control.tscn" id="4_twfe8"]
+[ext_resource type="PackedScene" uid="uid://d1fvyxtpiabej" path="res://Scenes/VolumeControl/volume_control.tscn" id="4_twfe8"]
 
 [node name="GameUi" type="Control" unique_id=802200503]
 process_mode = 3

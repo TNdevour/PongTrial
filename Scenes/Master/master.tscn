@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwiexi6qdhbri" path="res://Scenes/PlayerPaddle/player_paddle.tscn" id="4_1tge4"]
 [ext_resource type="PackedScene" uid="uid://khwtli2ptyye" path="res://Scenes/AiPaddle/ai_paddle.tscn" id="5_a1koi"]
 [ext_resource type="PackedScene" uid="uid://ux4qjsjirevc" path="res://Scenes/ScoreArea/score_area.tscn" id="6_0n3hv"]
-[ext_resource type="PackedScene" uid="uid://2h2uwij470pc" path="res://GameUi/game_ui.tscn" id="7_yghbl"]
+[ext_resource type="PackedScene" uid="uid://2h2uwij470pc" path="res://Scenes/GameUi/game_ui.tscn" id="7_yghbl"]
 
 [node name="Master" type="Node" unique_id=1440608966]
 script = ExtResource("1_8m0i8")

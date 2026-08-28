@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1fvyxtpiabej"]
 
 [ext_resource type="FontFile" uid="uid://bccwygh10qt8j" path="res://Assets/Fonts/LUNCHTIME.TTF" id="1_scgfw"]
-[ext_resource type="Script" uid="uid://c6nr4kssl7iqs" path="res://VolumeControl/volume_control.gd" id="1_twwxj"]
+[ext_resource type="Script" uid="uid://c6nr4kssl7iqs" path="res://Scenes/VolumeControl/volume_control.gd" id="1_twwxj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fcvnj"]
 font = ExtResource("1_scgfw")
