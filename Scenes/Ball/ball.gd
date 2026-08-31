@@ -1,10 +1,11 @@
-class_name Ball extends RigidBody2D
+##Deprecated: original ball_class implementation
+class_name Ball_deprec extends RigidBody2D
 
 const LAUNCH_IMPULSE: float = 1000.0
 const MAX_X_VALUE: float = 1.0
 const MAX_Y_VALUE: float = 0.7
 const SPEED: float = 50.0
-const SPEED_MULTIPLIER: float = 1.05
+const SPEED_MULTIPLIER: float = 1.01
 const PADDLE_GROUP: String = "paddles"
 const WALL_GROUP:String = "walls"
 var _bounce_factor:float

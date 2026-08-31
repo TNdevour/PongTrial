@@ -1,20 +1,18 @@
 [gd_scene format=3 uid="uid://r25xgifk8t1s"]
 
 [ext_resource type="Script" uid="uid://moie78vppwdj" path="res://Scenes/Test/test.gd" id="1_lxp54"]
-[ext_resource type="PackedScene" uid="uid://mfdiwg1qkyqs" path="res://Scenes/Ball/ball.tscn" id="2_jda1s"]
 [ext_resource type="PackedScene" uid="uid://1ea320c11rpa" path="res://Scenes/Wall/wall.tscn" id="3_jda1s"]
 [ext_resource type="PackedScene" uid="uid://cwiexi6qdhbri" path="res://Scenes/PlayerPaddle/player_paddle.tscn" id="4_1ihti"]
 [ext_resource type="PackedScene" uid="uid://khwtli2ptyye" path="res://Scenes/AiPaddle/ai_paddle.tscn" id="5_su4bj"]
+[ext_resource type="PackedScene" uid="uid://rdbkj6yxxa13" path="res://Scenes/BallV2/ball_v_2.tscn" id="6_fpuyy"]
 [ext_resource type="PackedScene" uid="uid://ux4qjsjirevc" path="res://Scenes/ScoreArea/score_area.tscn" id="6_wbqg2"]
 
 [node name="Test" type="Node" unique_id=1809171682]
 script = ExtResource("1_lxp54")
 
 [node name="LaunchTimer" type="Timer" parent="." unique_id=85115310]
+wait_time = 2.0
 one_shot = true
-
-[node name="Ball" parent="." unique_id=2076679477 instance=ExtResource("2_jda1s")]
-position = Vector2(569, 293)
 
 [node name="Wall" parent="." unique_id=1043767309 instance=ExtResource("3_jda1s")]
 
@@ -32,9 +30,8 @@ rotation = 1.5707964
 [node name="PlayerPaddleV2" parent="." unique_id=1623619519 instance=ExtResource("4_1ihti")]
 position = Vector2(82, 306)
 
-[node name="AiPaddle" parent="." unique_id=207026361 node_paths=PackedStringArray("_target_ball") instance=ExtResource("5_su4bj")]
+[node name="AiPaddle" parent="." unique_id=207026361 instance=ExtResource("5_su4bj")]
 position = Vector2(1051, 306)
-_target_ball = NodePath("../Ball")
 
 [node name="PlayerScoreArea" parent="." unique_id=1835589120 instance=ExtResource("6_wbqg2")]
 position = Vector2(35, 323)
@@ -43,6 +40,9 @@ position = Vector2(35, 323)
 position = Vector2(1130, 323)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=885708773]
+position = Vector2(567, 295)
+
+[node name="BallV2" parent="." unique_id=11204986 instance=ExtResource("6_fpuyy")]
 position = Vector2(567, 295)
 
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

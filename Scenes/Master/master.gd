@@ -15,8 +15,7 @@ func _ready() -> void:
 	SignalHub.on_game_restarted.connect(start_new_round)
 
 func start_new_round()-> void:
-	if spawn_timer.is_inside_tree():
-		spawn_timer.start()
+	spawn_timer.start()
 
 func spawn_new_ball()-> void:
 	var ball:Ball = _ball_scene.instantiate()

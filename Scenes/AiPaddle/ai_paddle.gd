@@ -1,13 +1,13 @@
 extends AnimatableBody2D
 
 @export var _target_ball:Ball
-@export var _paddle_speed: float = 200.0
+@export var _paddle_speed: float = 220.0
 @onready var texture_rect: TextureRect = $TextureRect
 
 const PADDLE_GROUP: String = "paddles"
 const PADDLE_BUFFER_DISTANCE: float = 10.0
 const HEIGHT_PADDING: float = 20.0
-const SPEED_MULTIPLIER: float = 1.7
+const SPEED_MULTIPLIER: float = 2.0
 var _paddle_half_height: float = 0.0
 var HARD_MODE: String = "HARD"
 
